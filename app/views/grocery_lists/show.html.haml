@@ -1,0 +1,8 @@
+%h1 Grocery List
+
+.button= link_to('Add Item', new_item_path(@new_item))
+
+%h2 Items
+%ul
+  - @grocery_list.grocery_items.each do |grocery_item|
+    %li= grocery_item.item.name

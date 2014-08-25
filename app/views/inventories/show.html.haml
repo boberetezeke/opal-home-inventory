@@ -1,0 +1,8 @@
+%h1 Inventory
+
+.button= link_to('Add Item', new_item_path(@new_item))
+
+%h2 Items
+%ul
+  - @inventory.inventory_items.each do |inventory_item|
+    %li= inventory_item.item.name
