@@ -1,6 +1,6 @@
 %h1 Inventory
 
-.button= link_to('Add Item', new_item_path(@new_item))
+.button= link_to('Add Item', new_item_path(@new_item, container_type: 'inventory', container_id: @inventory.id))
 
 %h2 Items
 %ul

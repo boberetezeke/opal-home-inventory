@@ -1,0 +1,6 @@
+= form_for @item do |f|
+  = f.label :name
+  = f.text_field :name
+  = hidden_field_tag :container_type, @container_type
+  = hidden_field_tag :container_id, @container_id
+  = f.submit

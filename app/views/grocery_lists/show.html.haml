@@ -1,6 +1,6 @@
 %h1 Grocery List
 
-.button= link_to('Add Item', new_item_path(@new_item))
+.button= link_to('Add Item', new_item_path(@new_item, container_type: 'grocery_list', container_id: @grocery_list.id))
 
 %h2 Items
 %ul
