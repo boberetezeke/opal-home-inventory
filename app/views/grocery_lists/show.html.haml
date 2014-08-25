@@ -1,8 +1,8 @@
 %h1 Grocery List
 
-.button= link_to('Add Item', new_item_path(@new_item, container_type: 'grocery_list', container_id: @grocery_list.id))
-
+%h2= "Shopped on #{@grocery_list.created_at.strftime("%d/%m/%y %H:%M")}"
 %h2 Items
 %ul
   - @grocery_list.grocery_items.each do |grocery_item|
-    %li= grocery_item.item.name
+    %li
+      = grocery_item.item.name

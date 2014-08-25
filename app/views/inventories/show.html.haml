@@ -5,4 +5,6 @@
 %h2 Items
 %ul
   - @inventory.inventory_items.each do |inventory_item|
-    %li= inventory_item.item.name
+    %li
+      = inventory_item.item.name
+      = link_to("remove", inventory_item_path(inventory_item.id), method: :delete)

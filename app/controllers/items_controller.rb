@@ -11,12 +11,12 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if params[:container_type] == 'grocery_list'
       container = current_user.grocery_lists.where(id: params[:container_id]).first
-      container_path = grocery_list_path(container.id)
-      container_link_item = GroceryItem.new(grocery_list: container, item: @item)
+      container_path = shop_grocery_list_path(container.id)
+      container_link_item = GroceryItem.new(user: current_user, grocery_list: container, item: @item)
     else
       container = current_user.inventory
       container_path = inventory_path(current_user.inventory.id)
-      container_link_item = InventoryItem.new(inventory: container, item: @item)
+      container_link_item = InventoryItem.new(user: current_user, inventory: container, item: @item)
     end
 
     if @item.save

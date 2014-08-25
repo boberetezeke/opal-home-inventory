@@ -1,4 +1,10 @@
 %h1 Home 
 
-.button= link_to('Grocery List', grocery_list_path(@current_grocery_list))
+.button= link_to('Grocery List', shop_grocery_list_path(@current_grocery_list))
 .button= link_to('Inventory', inventory_path(@inventory))
+
+%h2 Old grocery lists
+
+%ul
+  - @old_grocery_lists.each do |grocery_list|
+    %li= link_to(grocery_list.created_at.strftime("%m/%d/%y %H:%M"), grocery_list_path(grocery_list.id))

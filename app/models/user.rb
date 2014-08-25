@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :grocery_lists
   has_one  :inventory
+  has_many :items
 
   after_create :create_grocery_list_and_inventory
 

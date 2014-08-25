@@ -1,0 +1,17 @@
+%h1 Grocery List
+
+= form_tag(add_item_grocery_list_path(@grocery_list), method: 'post') do
+  = select_tag('item', options_from_collection_for_select(current_user.items, 'id', 'name'))
+  = submit_tag 'Add'
+
+.button= link_to('New Item', new_item_path(@new_item, container_type: 'grocery_list', container_id: @grocery_list.id))
+
+%h2 Items
+= form_tag(add_to_inventory_grocery_list_path(@grocery_list), method: 'post') do
+  %ul
+    - @grocery_list.grocery_items.each do |grocery_item|
+      %li
+        = check_box_tag "grocery_item_#{grocery_item.id}"
+        = grocery_item.item.name
+        = link_to("remove", grocery_item_path(grocery_item.id), method: :delete)
+  = submit_tag 'Done Shopping'
