@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
 
   def create_grocery_list_and_inventory
     grocery_lists << GroceryList.new
-    inventory = Inventory.create
+    inventory = Inventory.create(user: current_user)
   end 
 end

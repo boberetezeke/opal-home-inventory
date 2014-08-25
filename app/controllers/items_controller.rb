@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.user = current_user
     if params[:container_type] == 'grocery_list'
       container = current_user.grocery_lists.where(id: params[:container_id]).first
       container_path = shop_grocery_list_path(container.id)
